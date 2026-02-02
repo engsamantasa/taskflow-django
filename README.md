@@ -1,4 +1,4 @@
-🌎 This README is also available in Portuguese: [Leia em Português](README.pt-BR.md)
+This README is also available in Portuguese: [Leia em Português](README.pt-BR.md)
 
 # TaskFlow – Task Management System
 
