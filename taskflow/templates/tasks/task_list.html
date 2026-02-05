@@ -18,18 +18,22 @@
         
         {% for task in tasks %}
         <div class="col">
-            <div class="card h-100 task-card border-0"> <div class="card-body d-flex flex-column">
+            <div class="card h-100 task-card border-0">
+                <div class="card-body d-flex flex-column">
                     
                     <div class="d-flex justify-content-between align-items-start mb-3">
-                        <span class="badge rounded-pill 
-                            {% if task.status == 'concluida' %}bg-success
-                            {% elif task.status == 'em_andamento' %}bg-info text-dark
-                            {% else %}bg-warning text-dark{% endif %}">
-                            {{ task.get_status_display }}
+                        <span class="badge rounded-pill status-badge
+                           {% if task.status == 'COMPLETO' %}status-concluida
+                            {% elif task.status == 'EM_ANDAMENTO' %}status-andamento
+                            {% else %}status-pendente{% endif %}">
+                                {{ task.get_status_display }}
                         </span>
 
                         {% if task.due_date %}
-                        <small class="text-muted" title="Prazo Final">
+                        <small class="text-muted" 
+                               title="Prazo Final: {{ task.due_date|date:'d/m/Y' }}" 
+                               data-bs-toggle="tooltip" 
+                               data-bs-placement="top">
                             <i class="bi bi-calendar-event me-1"></i> {{ task.due_date|date:"d/m" }}
                         </small>
                         {% endif %}
@@ -47,10 +51,18 @@
                         </small>
                         
                         <div>
-                            <a href="{% url 'task_update' task.pk %}" class="btn btn-sm btn-outline-primary border-0" title="Editar">
+                            <a href="{% url 'task_update' task.pk %}" 
+                               class="btn btn-sm btn-outline-primary border-0" 
+                               title="Editar Tarefa" 
+                               data-bs-toggle="tooltip">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <button type="button" class="btn btn-sm btn-outline-danger border-0 btn-delete" data-url="{% url 'task_delete' task.pk %}" title="Excluir">
+                            
+                            <button type="button" 
+                                    class="btn btn-sm btn-outline-danger border-0 btn-delete" 
+                                    data-url="{% url 'task_delete' task.pk %}" 
+                                    title="Excluir Tarefa" 
+                                    data-bs-toggle="tooltip">
                                 <i class="bi bi-trash"></i>
                             </button>
                         </div>
@@ -77,17 +89,4 @@
 
     </div>
 </div>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const deleteButtons = document.querySelectorAll('.btn-delete');
-        deleteButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                if(confirm('Deseja realmente excluir esta tarefa?')) {
-                    window.location.href = this.dataset.url;
-                }
-            });
-        });
-    });
-</script>
 {% endblock %}

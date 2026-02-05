@@ -49,14 +49,12 @@ footer {
 
 /* --- Estilos da Tela de Autenticação --- */
 
-
-/* Fundo da metade esquerda com degradê */
 .auth-hero {
     background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
 }
 
 
-/* Ajuste nos inputs */
+
 .form-control {
     border: none;
     padding: 12px 15px;
@@ -67,7 +65,7 @@ footer {
 }
 
 
-/* Animação quando troca os formulários */
+
 .auth-section {
     animation: fadeIn 0.4s ease-in-out;
 }
@@ -81,14 +79,11 @@ footer {
 
 
 
-/* --- Melhorias no Formulário de Tarefas --- */
-
-/* Remove a alça de redimensionamento do textarea para manter o design fixo */
 textarea.form-control {
     resize: none;
 }
 
-/* Deixa o input de data com a mesma altura dos outros */
+
 input[type="date"].form-control {
     appearance: none; /* Remove estilo padrão feio de alguns navegadores */
     min-height: 48px; /* Altura confortável para clique */

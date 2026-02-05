@@ -1,39 +1,64 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     
-    
-    
-    
-    // Sumir alertas do Django após 4 segundos
+    // ============================================================
+    // ALERTAS (Auto-dismiss)
+    // ============================================================
+
+
     const alerts = document.querySelectorAll('.alert');
     if (alerts) {
         setTimeout(() => {
             alerts.forEach(alert => {
-                // Adiciona classe de fade out do Bootstrap
                 alert.classList.remove('show');
                 alert.classList.add('fade');
-                // Remove do DOM após a animação
                 setTimeout(() => alert.remove(), 500);
             });
-        }, 4000); // 4 segundos
+        }, 4000);
     }
 
+    
+    // ============================================================
+    // TOOLTIPS DO BOOTSTRAP
+    // ============================================================
+    
 
 
-
-
-
-
-    // 3. Inicializar Tooltips do Bootstrap (caso eu use)
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
-});
 
+    
+    
+    // ============================================================
+    // CONFIRMAÇÃO DE EXCLUSÃO (O Código Novo)
+    // ============================================================
+    
+    
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    
+    deleteButtons.forEach(btn => {
+        btn.addEventListener('click', function(event) {
+            // Pega a URL que guardamos no atributo data-url do HTML
+            const urlParaDeletar = this.dataset.url;
+            
+            // Pergunta ao usuário
+            const confirmacao = confirm('Deseja realmente excluir esta tarefa?');
+            
+            if(confirmacao) {
+                // Se sim, redireciona o navegador para a URL de deletar
+                window.location.href = urlParaDeletar;
+            } else {
+                // Se não, não faz nada (o botão não envia form nem nada)
+                event.preventDefault();
+            }
+        });
+    });
 
+    // ============================================================
+    // ALTERNÂNCIA LOGIN / CADASTRO
+    // ============================================================
 
-// --- Alternância Login/Cadastro ---
     const btnShowRegister = document.getElementById('show-register');
     const btnShowLogin = document.getElementById('show-login');
     const loginSection = document.getElementById('login-section');
@@ -53,3 +78,5 @@ document.addEventListener("DOMContentLoaded", function() {
             loginSection.classList.remove('d-none'); 
         });
     }
+
+});

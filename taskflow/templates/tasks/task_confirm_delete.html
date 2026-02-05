@@ -1,14 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Apagar Tarefa</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            
+            <div class="card border-0 shadow-lg rounded-4">
+                <div class="card-body p-5 text-center">
+                    
+                    <div class="mb-4">
+                        <i class="bi bi-exclamation-triangle-fill text-danger" style="font-size: 4rem;"></i>
+                    </div>
 
-<p>Tem certeza que deseja apagar a tarefa "{{ task.title }}"?</p>
+                    <h2 class="fw-bold text-dark mb-3">Excluir Tarefa?</h2>
 
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Confirmar</button>
-</form>
+                    <p class="text-muted mb-4">
+                        Você tem certeza que deseja remover permanentemente a tarefa:<br>
+                        <span class="d-block mt-2 fw-bold text-dark fs-5 bg-light p-2 rounded border">
+                            "{{ task.title }}"
+                        </span>
+                    </p>
+                    
+                    <p class="text-danger small mb-4 fw-semibold">
+                        ⚠️ Esta ação não pode ser desfeita.
+                    </p>
 
-<a href="{% url 'task_list' %}">Cancelar</a>
+                    <form method="post" class="d-grid gap-2">
+                        {% csrf_token %}
+                        
+                        <button type="submit" class="btn btn-danger btn-lg fw-bold shadow-sm">
+                            <i class="bi bi-trash-fill me-2"></i> Sim, excluir tarefa
+                        </button>
+                        
+                        <a href="{% url 'task_list' %}" class="btn btn-light btn-lg text-muted fw-bold mt-2">
+                            Cancelar
+                        </a>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 {% endblock %}

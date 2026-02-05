@@ -6,7 +6,7 @@ class Task(models.Model):
 
     STATUS_PENDING = 'PENDENTE'
     STATUS_IN_PROGRESS = 'EM_ANDAMENTO'
-    STATUS_COMPLETED = 'COMPLETOpython manage.py makemigrations'
+    STATUS_COMPLETED = 'COMPLETO'
 
     STATUS_CHOICES = [
         (STATUS_PENDING, 'Pendente'),
