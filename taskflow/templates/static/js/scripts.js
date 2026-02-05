@@ -20,17 +20,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
     
-    
-    
-    
-    // 2. Confirmação antes de deletar 
-    const deleteButtons = document.querySelectorAll('.btn-delete');
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            const confirmacao = confirm("Tem certeza que deseja excluir esta tarefa? Esta ação não pode ser desfeita.");
-            if (!confirmacao) {
-                event.preventDefault(); // Cancela o clique se o usuário disser "Cancelar"
-            }
+     document.addEventListener("DOMContentLoaded", function() {
+        const deleteButtons = document.querySelectorAll('.btn-delete');
+        deleteButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(confirm('Deseja realmente excluir esta tarefa?')) {
+                    window.location.href = this.dataset.url;
+                }
+            });
         });
     });
 
@@ -39,12 +36,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-    // 3. Inicializar Tooltips do Bootstrap (caso eu use)
+    // Inicializar Tooltips do Bootstrap (caso eu use)
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 });
+
+
+
+
 
 
 
@@ -56,17 +57,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (btnShowRegister && btnShowLogin) {
         
-        // Clicou em "Crie agora"
         btnShowRegister.addEventListener('click', function(e) {
-            e.preventDefault(); // Impede o link de pular pro topo da página
-            loginSection.classList.add('d-none');     // Esconde login
-            registerSection.classList.remove('d-none'); // Mostra cadastro
+            e.preventDefault(); 
+            loginSection.classList.add('d-none'); 
+            registerSection.classList.remove('d-none'); 
         });
 
-        // Clicou em "Faça Login"
         btnShowLogin.addEventListener('click', function(e) {
             e.preventDefault();
-            registerSection.classList.add('d-none');  // Esconde cadastro
-            loginSection.classList.remove('d-none');  // Mostra login
+            registerSection.classList.add('d-none'); 
+            loginSection.classList.remove('d-none'); 
         });
     }

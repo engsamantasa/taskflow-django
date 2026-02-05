@@ -40,18 +40,6 @@ body {
 .status-concluida { background-color: #d1e7dd; color: #0f5132; }
 
 
-/* 
---- Tela de Login inicial --- 
-.auth-container {
-    max-width: 400px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-*/
-
 /* Rodapé fixo no final */
 footer {
     margin-top: auto;
@@ -87,4 +75,27 @@ footer {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+/* --- Melhorias no Formulário de Tarefas --- */
+
+/* Remove a alça de redimensionamento do textarea para manter o design fixo */
+textarea.form-control {
+    resize: none;
+}
+
+/* Deixa o input de data com a mesma altura dos outros */
+input[type="date"].form-control {
+    appearance: none; /* Remove estilo padrão feio de alguns navegadores */
+    min-height: 48px; /* Altura confortável para clique */
+}
+
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
 }

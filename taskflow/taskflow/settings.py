@@ -41,6 +41,9 @@ INSTALLED_APPS = [
 
     'tasks',
     'accounts',
+
+
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
