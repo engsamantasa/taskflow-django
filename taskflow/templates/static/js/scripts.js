@@ -18,34 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 4000); // 4 segundos
     }
 
-    
-    
-     document.addEventListener("DOMContentLoaded", function() {
-        const deleteButtons = document.querySelectorAll('.btn-delete');
-        deleteButtons.forEach(btn => {
-            btn.addEventListener('click', function() {
-                if(confirm('Deseja realmente excluir esta tarefa?')) {
-                    window.location.href = this.dataset.url;
-                }
-            });
-        });
-    });
 
 
 
 
 
 
-    // Inicializar Tooltips do Bootstrap (caso eu use)
+    // 3. Inicializar Tooltips do Bootstrap (caso eu use)
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 });
-
-
-
-
 
 
 
