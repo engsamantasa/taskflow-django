@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Sua tarefas irão aparecer aqui!</h2>
+<h2>Minha Lista de Tarefas:</h2>
+
+<a href="{% url 'task_create' %}">Criar uma nova tarefa</a>
+
+<ul>
+    {% for task in tasks %}
+        <li>
+            <strong>{{ task.title }}</strong> - {{ task.get_status_display }}
+            <a href="{% url 'task_update' task.pk %}">Editar</a>
+            <a href="{% url 'task_delete' task.pk %}">Apagar</a>
+        </li>
+    {% empty %}
+        <li>Sem tarefas registradas</li>
+    {% endfor %}
+</ul>
 {% endblock %}
