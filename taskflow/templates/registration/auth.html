@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center min-vh-100 py-5">
+    
+    <div class="container">
+        <div class="row justify-content-center shadow-lg rounded-4 overflow-hidden">
+            
+            <div class="col-md-6 d-none d-md-flex bg-primary text-white flex-column align-items-center justify-content-center p-5 text-center auth-hero">
+                <h2 class="display-4 fw-bold mb-3">Taskflow 🚀</h2>
+                <p class="lead">Organize suas tarefas, aumente sua produtividade e alcance seus objetivos.</p>
+                <div class="mt-4">
+                    <small class="text-white-50">Versão 1.0 - Portfólio Django</small>
+                </div>
+            </div>
+
+            <div class="col-md-6 bg-white p-5 position-relative">
+                
+                <div id="login-section" class="auth-section">
+                    <h3 class="fw-bold text-primary mb-4">Bem-vindo de volta!</h3>
+                    
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Usuário</label>
+                            <input type="text" name="username" class="form-control form-control-lg bg-light" placeholder="Seu usuário" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Senha</label>
+                            <input type="password" name="password" class="form-control form-control-lg bg-light" placeholder="••••••" required>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">Entrar</button>
+                        </div>
+                    </form>
+
+                    <p class="text-center mt-4 text-muted">
+                        Ainda não tem conta? 
+                        <a href="#" id="show-register" class="fw-bold text-primary text-decoration-none">Crie agora</a>
+                    </p>
+                </div>
+
+                <div id="register-section" class="auth-section d-none">
+                    <h3 class="fw-bold text-success mb-4">Crie sua conta</h3>
+                    
+                    <form method="post" action="{% url 'register' %}">
+                        {% csrf_token %}
+                        
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger py-2 mb-3">
+                                <small>{{ form.non_field_errors }}</small>
+                            </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Nome Completo</label>
+                            <input type="text" name="first_name" required
+                                   class="form-control bg-light {% if form.first_name.errors %}is-invalid{% endif %}" 
+                                   value="{{ request.POST.first_name }}">
+                            
+                            {% for error in form.first_name.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Email</label>
+                            <input type="email" name="email" required
+                                   class="form-control bg-light {% if form.email.errors %}is-invalid{% endif %}"
+                                   value="{{ request.POST.email }}">
+                            
+                            {% for error in form.email.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Usuário</label>
+                            <input type="text" name="username" required
+                                   class="form-control bg-light {% if form.username.errors %}is-invalid{% endif %}"
+                                   value="{{ request.POST.username }}">
+                            <div class="form-text small">Letras, números e sublinhados apenas.</div>
+                            
+                            {% for error in form.username.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Senha</label>
+                            <input type="password" name="password1" required
+                                   class="form-control bg-light {% if form.password1.errors %}is-invalid{% endif %}"> 
+                            
+                            {% for error in form.password1.errors %}
+                                <div class="invalid-feedback text-start">{{ error }}</div>
+                            {% endfor %}
+                            
+                            {% if form.password1.help_text %}
+                                <small class="text-muted d-block mt-1" style="font-size: 0.7rem">
+                                    {{ form.password1.help_text|safe }}
+                                </small>
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Confirmar Senha</label>
+                            <input type="password" name="password2" required
+                                   class="form-control bg-light {% if form.password2.errors %}is-invalid{% endif %}">
+                            
+                            {% for error in form.password2.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-success btn-lg shadow-sm">Cadastrar</button>
+                        </div>
+                    </form>
+
+                    <p class="text-center mt-4 text-muted">
+                        Já tem cadastro? 
+                        <a href="#" id="show-login" class="fw-bold text-success text-decoration-none">Faça Login</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

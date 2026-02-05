@@ -40,7 +40,8 @@ body {
 .status-concluida { background-color: #d1e7dd; color: #0f5132; }
 
 
-/* --- Tela de Login --- */
+/* 
+--- Tela de Login inicial --- 
 .auth-container {
     max-width: 400px;
     margin: 4rem auto;
@@ -49,8 +50,41 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
+*/
 
 /* Rodapé fixo no final */
 footer {
     margin-top: auto;
+}
+
+
+
+/* --- Estilos da Tela de Autenticação --- */
+
+
+/* Fundo da metade esquerda com degradê */
+.auth-hero {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+}
+
+
+/* Ajuste nos inputs */
+.form-control {
+    border: none;
+    padding: 12px 15px;
+}
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15); /* Foco suave */
+    background-color: #fff;
+}
+
+
+/* Animação quando troca os formulários */
+.auth-section {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

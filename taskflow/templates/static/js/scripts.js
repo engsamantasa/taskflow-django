@@ -45,3 +45,28 @@ document.addEventListener("DOMContentLoaded", function() {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 });
+
+
+
+// --- Alternância Login/Cadastro ---
+    const btnShowRegister = document.getElementById('show-register');
+    const btnShowLogin = document.getElementById('show-login');
+    const loginSection = document.getElementById('login-section');
+    const registerSection = document.getElementById('register-section');
+
+    if (btnShowRegister && btnShowLogin) {
+        
+        // Clicou em "Crie agora"
+        btnShowRegister.addEventListener('click', function(e) {
+            e.preventDefault(); // Impede o link de pular pro topo da página
+            loginSection.classList.add('d-none');     // Esconde login
+            registerSection.classList.remove('d-none'); // Mostra cadastro
+        });
+
+        // Clicou em "Faça Login"
+        btnShowLogin.addEventListener('click', function(e) {
+            e.preventDefault();
+            registerSection.classList.add('d-none');  // Esconde cadastro
+            loginSection.classList.remove('d-none');  // Mostra login
+        });
+    }
