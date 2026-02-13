@@ -7,8 +7,20 @@ from .forms import TaskForm
 
 @login_required
 def task_list(request):
+    status_filter = request.GET.get('status')
+
     tasks = Task.objects.filter(user=request.user)
-    return render(request, 'tasks/task_list.html', {'tasks': tasks})
+
+    if status_filter:
+        tasks = tasks.filter(status=status_filter)
+
+    context = {
+        'tasks': tasks,
+        'status_filter': status_filter,
+        'status_choices': Task.STATUS_CHOICES
+    }
+
+    return render(request, 'tasks/task_list.html', context)
 
 
 
