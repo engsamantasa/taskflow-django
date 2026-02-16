@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     
     // ============================================================
-    // CONFIRMAÇÃO DE EXCLUSÃO (O Código Novo)
+    // CONFIRMAÇÃO DE EXCLUSÃO
     // ============================================================
     
     
@@ -39,17 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
     deleteButtons.forEach(btn => {
         btn.addEventListener('click', function(event) {
-            // Pega a URL que guardamos no atributo data-url do HTML
             const urlParaDeletar = this.dataset.url;
-            
-            // Pergunta ao usuário
             const confirmacao = confirm('Deseja realmente excluir esta tarefa?');
-            
             if(confirmacao) {
-                // Se sim, redireciona o navegador para a URL de deletar
                 window.location.href = urlParaDeletar;
             } else {
-                // Se não, não faz nada (o botão não envia form nem nada)
                 event.preventDefault();
             }
         });
