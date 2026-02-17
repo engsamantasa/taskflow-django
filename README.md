@@ -68,8 +68,4 @@ Deployment:
 ### Samanta Sá
 ### Linkedin: [https://www.linkedin.com/in/engsamantasa/](https://www.linkedin.com/in/engsamantasa/)
 
-
-
-![App Screenshot](assets/preview.png)
-
 ---
