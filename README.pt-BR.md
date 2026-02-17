@@ -2,6 +2,9 @@ Este README também está disponível em inglês: [Read in English](README.md)
 
 # TaskFlow – Sistema de Gestão de Tarefas
 
+![TaskflowHeader](https://github.com/user-attachments/assets/81a66a8d-63a4-4f55-afc3-ba94d438b390)
+
+
 O TaskFlow é uma aplicação web desenvolvida com Django para auxiliar usuários no gerenciamento de tarefas diárias de forma organizada e segura.  
 O projeto foi pensado para simular um sistema real de gestão de tarefas, com foco em arquitetura limpa, autenticação e conceitos fundamentais de desenvolvimento web e backend.
 
@@ -33,35 +36,40 @@ Este projeto foi desenvolvido como parte de um portfólio profissional para demo
 
 ## Tecnologias Utilizadas
 
-- Python 3
+Backend:
 - Django
-- Django Templates
-- HTML5
-- CSS3
-- SQLite (ambiente de desenvolvimento)
-- PostgreSQL (ambiente de produção)
-- Git e GitHub
+- SQLite / PostgreSQL
+
+Frontend:
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+
+Deployment:
+- Render
 
 ---
-
-## Arquitetura do Projeto
-
-A aplicação segue a arquitetura **MVT (Model-View-Template)** do Django:
-
-- **Models**: responsáveis pela estrutura dos dados e regras de persistência
-- **Views**: responsáveis pela lógica da aplicação e fluxo das requisições
-- **Templates**: responsáveis pela renderização da interface do usuário
-
-O projeto foi dividido em apps para facilitar a organização, manutenção e escalabilidade do código.
-
----
-
 
 ## Deploy
 
-A aplicação está disponível em produção no link abaixo:
+🔗 [LINK](https://taskflow-shbk.onrender.com)
 
-🔗 [  Futuro Link  ]
+---
+
+## Preview
+
+
+<img width="1280" height="702" alt="SiteTaskflow" src="https://github.com/user-attachments/assets/db61956b-e41e-4d08-8fbe-eae84ec6ec24" />
+
+---
+
+## DEV:
+
+### Samanta Sá
+### Linkedin: [https://www.linkedin.com/in/engsamantasa/](https://www.linkedin.com/in/engsamantasa/)
+
+---
 
 
 
