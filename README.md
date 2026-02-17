@@ -2,6 +2,9 @@ This README is also available in Portuguese: [Leia em Português](README.pt-BR.m
 
 # TaskFlow – Task Management System
 
+![TaskflowHeader](https://github.com/user-attachments/assets/dacbd91c-7a2d-4106-8574-1317ec1c8c41)
+
+
 TaskFlow is a web application built with Django to help users manage their daily tasks in an organized and secure way.  
 The project was designed to simulate a real-world task management system, focusing on clean architecture, authentication, and core backend concepts.
 
@@ -33,25 +36,40 @@ This project was developed as a portfolio application to demonstrate backend and
 
 ## Technologies Used
 
-- Python 3
+Backend:
 - Django
-- Django Templates
-- HTML5
-- CSS3
-- SQLite (development)
-- PostgreSQL (production)
-- Git & GitHub
+- SQLite / PostgreSQL
+
+Frontend:
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+
+Deployment:
+- Render
 
 ---
 
-## Project Architecture
+## Live Demo
+🔗 [https://seu-link.onrender.com](https://taskflow-shbk.onrender.com)
 
-The application follows Django’s **MVT (Model-View-Template)** architecture:
+---
 
-- **Models**: responsible for data structure and database rules
-- **Views**: handle application logic and request flow
-- **Templates**: manage the user interface rendering
+## Preview
 
-The project is organized into separate apps to improve readability, scalability, and maintainability.
+
+<img width="1280" height="702" alt="SiteTaskflow" src="https://github.com/user-attachments/assets/db61956b-e41e-4d08-8fbe-eae84ec6ec24" />
+
+---
+
+## Author
+
+### Samanta Sá
+### Linkedin: [https://www.linkedin.com/in/engsamantasa/](https://www.linkedin.com/in/engsamantasa/)
+
+
+
+![App Screenshot](assets/preview.png)
 
 ---
